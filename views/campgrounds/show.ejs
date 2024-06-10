@@ -1,0 +1,61 @@
+<% layout('layouts/biolerplate')%>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
+
+<% if(cg) {%>
+<div class="row">
+    <div class="col-6">
+        <div class="card" style="width: 18rem;">
+            <img src="<%= cg.image %>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Title :<%= cg.title %></h5>
+              <p class="card-text"><b>Description : </b><%= cg.description %></p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Location : <%= cg.location %></li>
+              <li class="list-group-item">Price : <%= cg.price %></li>
+            </ul>
+            <div class="card-body">
+                <a href="/campgrounds/<%=cg._id%>/edit" class="card-link btn btn-warning"> Edit </a>
+                <form action="/campgrounds/<%=cg._id%>?_method=DELETE" method="POST" class="d-inline">
+                    <button class="btn btn-danger">
+                        Delete
+                    </button>
+                </form>
+            </div>
+          </div>         
+</div>
+
+<div class="col-6">
+    
+    <h2>Leave a Review</h2>
+          <form action="/campgrounds/<%= cg._id%>/reviews" method="post" novalidate class="validated-form">
+            <div class="mb-3">
+               <b><label for="rating" class="mt-2">Please Rate the Camp </label></b> 
+                <input type="range" class="form-range" min="1" max="10" name="review[rating]" id="rating">
+            </div>
+            <div class="mb-3">
+            <b> <label for="review" class="form-label mt-2">Enter a Review :-) </label></b> 
+                <textarea id="review" cols="3" rows="3" class="form-control" name="review[body]" required></textarea>
+                <div class="valid-feedback">Looks good!</div>
+            </div>
+            <button class="btn btn-success">Submit</button>
+          </form>
+    
+          <h2 class="mt-3">Ratings and Reviews :</h2>
+          <div class="card" style="border: 4px solid black;">
+          <% for(let review of cg.reviews){%>
+          <h3 class="card-title mb-1"style="font-family: 'Poppins', sans-serif;">Rating: <%= review.rating %></h5>
+          <b><p class="card-text mb-1">Review: <%= review.body %></p></b>
+          <form action="/campgrounds/<%= cg._id %>/reviews/<%= review._id%>?_method=DELETE" method="POST">
+           <button class="btn btn-sm btn-danger mb-5">Delete</button>
+          </form>
+          <% } %>
+        </div> 
+</div>
+</div>
+<% } else {%>
+    <p>Command not found</p>
+    <% } %>
+   

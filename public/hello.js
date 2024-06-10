@@ -1,0 +1,1 @@
+alert("Connected to the static block")

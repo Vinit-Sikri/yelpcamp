@@ -1,0 +1,47 @@
+<% layout('layouts/biolerplate')%>
+<h1 class="text-center mt-6" >Edit Campground</h1>
+    <form action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST" novalidate class="validated-form">
+        <div class="col-6 offset-3">
+        <div class="row">
+        <div> 
+            <label for="title" class="form-label">Title :</label>
+             <input type="text" class= "form-control" id="title" name="campground[title]" value="<%= campground.title%>" required>
+             <div class="valid-feedback">Looks good</div>
+        </div>
+
+        <div>
+            <label for="location" class="form-label">Location</label>
+                <input type="text" id="location" name="campground[location]" value= "<%=campground.location%>" class="form-control" required>
+                <div class="valid-feedback">Looks good</div>
+        </div>
+
+        <div>
+            <label for="image" class="form-label">Image URL</label>
+                <input type="text" id="image" name="campground[image]" value= "<%=campground.image%>" class="form-control" required>
+                <div class="valid-feedback">Looks good</div>
+        </div>
+
+
+        <div>
+            <label for="description" class="form-label">Description</label>
+                <textarea type="text" id="description" name="campground[description]" <%=campground.description%> class="form-control" required>
+                    </textarea>
+                    <div class="valid-feedback">Looks good</div>
+        </div>
+
+        <div>
+            <label for="price" class="form-label">Price</label>
+                <input type="text" id="price" name="campground[price]" value= "<%=campground.price%>" class="form-control mb-4" required>
+                <div class="valid-feedback">Looks good</div>
+        </div>
+
+    </div>
+    <button class="btn btn-info">Update campground</button>
+</div>       
+    </form>
+
+    <a href="/campgrounds/<%= campground._id %>" style="text-decoration: none; " >
+        Back To Show Page
+    </a>
+
+

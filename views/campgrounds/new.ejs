@@ -1,0 +1,45 @@
+<% layout('layouts/biolerplate')%>
+<div class="row">
+    <h1 class="text-center">New Campground</h1>
+    <div class="col-md-8 offset-md-2">
+        <form action="/campgrounds" method="post" novalidate class="validated-form">
+            <div class="mb-3">
+            <label for="title" class="form-label">Title :</label>
+            <input type="text"class= "form-control" id="title" name="campground[title]" required>
+            <div class="valid-feedback">Looks good</div>
+        </div>
+        <div>
+            <label for="location" class="form-label">Location :</label>
+            <input type="text" id="location" name="campground[location]" class="form-control" required>
+            <div class="valid-feedback">Looks good</div>
+        </div>
+        <div>
+            <label for="image" class="form-label">Image URL:</label>
+            <input type="text" id="image" name="campground[image]" class="form-control" required>
+            <div class="valid-feedback">Looks good</div>
+        </div>
+        <div>
+            <label for="description" class="form-label mb-3">Description:</label>
+            <textarea id="description" name="campground[description]" class="form-control" rows="4" required>
+            </textarea>
+            <div class="valid-feedback">Looks good</div>
+        </div>
+        <div>
+            <label for="price">Price :</label>
+        <div class="input-group mb-3 mt-1">
+            <span class="input-group-text" id="basic-addon1">INR</span>
+            <input id = "price"type="text" class="form-control" placeholder="0.00" aria-label="Username"name="campground[price]" aria-describedby="basic-addon1" required>
+            <div class="valid-feedback">Looks good</div>
+          </div>
+        </div>
+         <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input mt-3" id="exampleCheck1">
+            <label class="form-check-label mt-3" for="exampleCheck1">All details filled</label>
+          </div>
+        <button class="btn btn-success mb-3">Add campground</button>
+        </form>
+    </div>
+</div>
+
+
+

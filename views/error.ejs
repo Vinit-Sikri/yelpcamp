@@ -1,0 +1,11 @@
+<% layout('layouts/biolerplate')%>
+
+<div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading">ERROR!!</h4>
+    <hr>
+    <h6><%= err.message%></h6>
+    <hr>
+    <p class="mb-0">Please try rectifying the errors in the url.</p>
+    <hr>
+    <p><%= err.stack%></p>
+  </div>
